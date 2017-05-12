@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angul
 import {ProtectedPage} from '../protected-page/protected-page';
 import {Storage} from '@ionic/storage';
 
-import {DoctorsPage} from '../doctors-page/doctors-page';
+import {DoctorInfoPage} from '../doctor-info-page/doctor-info-page';
 import {PrescriptionsPage} from '../prescriptions-page/prescriptions-page';
 
 import {UserModel} from '../../models/user.model';
@@ -24,7 +24,7 @@ export class HomePage extends ProtectedPage {
 
   public user: UserModel;
   
-  public doctorsPage: any;
+  public doctorInfoPage: any;
   public prescriptionsPage: any;
 
   constructor(
@@ -37,7 +37,7 @@ export class HomePage extends ProtectedPage {
     
     this.storage.get('user').then(user => this.user = user);
     
-    this.doctorsPage = DoctorsPage;
+    this.doctorInfoPage = DoctorInfoPage;
     this.prescriptionsPage = PrescriptionsPage;
   }
 

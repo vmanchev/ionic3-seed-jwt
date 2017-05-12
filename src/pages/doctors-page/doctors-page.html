@@ -4,7 +4,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>        
-    <ion-title>Лекари</ion-title>
+    <ion-title>{{ doctor.first_name }} {{ doctor.last_name }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -12,4 +12,19 @@
 
 <ion-content padding>
 
+  <ion-list *ngIf="doctor && doctor.daySchedule">
+    
+    <ion-list-header>
+      Изберете свободен час
+    </ion-list-header>
+
+    
+    <button ion-item *ngFor="let s of doctor.daySchedule.schedule" [disabled]="s.status_id == 2">
+      {{ s.from }}
+      
+      <span item-right *ngIf="s.status_id == 2">заето</span>
+      
+    </button>
+  </ion-list>
+  
 </ion-content>

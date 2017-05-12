@@ -10,7 +10,7 @@ import { AuthService } from '../providers/auth-service';
 
 import {ForgotPage} from '../pages/forgot-page/forgot-page';
 import {RegisterPage} from '../pages/register-page/register-page';
-import {DoctorsPage} from '../pages/doctors-page/doctors-page';
+import {DoctorInfoPage} from '../pages/doctor-info-page/doctor-info-page';
 import {PrescriptionsPage} from '../pages/prescriptions-page/prescriptions-page';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -31,7 +31,7 @@ export function getAuthHttp(http) {
     MyApp,
     ForgotPage,
     RegisterPage,
-    DoctorsPage,
+    DoctorInfoPage,
     PrescriptionsPage
   ],
   imports: [
@@ -47,7 +47,7 @@ export function getAuthHttp(http) {
     MyApp,
     ForgotPage,
     RegisterPage,
-    DoctorsPage,
+    DoctorInfoPage,
     PrescriptionsPage
   ],
   providers: [

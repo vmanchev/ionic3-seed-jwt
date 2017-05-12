@@ -1,0 +1,33 @@
+<ion-content padding>
+
+  <ion-card>
+    <ion-card-header>
+      Потвърждение
+    </ion-card-header>
+    
+    <ion-card-content>
+      
+      Моля, потвърдете желанието си да запазите следния час:
+      
+      д-р {{ appointment.doctor.first_name }} {{ appointment.doctor.last_name }}<br />
+      Дата: {{ appointment.timeSlot.from | date : 'dd/mm/yyyy' }} Час: {{ appointment.timeSlot.from | date : 'HH:mm' }} 
+      
+    </ion-card-content>
+    
+    <ion-footer>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <button ion-button block clear (click)="closeModal()">Откажи</button>
+          </ion-col>
+          
+          <ion-col>
+            <button ion-button block (click)="confirmAppointnemt()">Потвърди</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-footer>
+    
+  </ion-card>
+  
+</ion-content>

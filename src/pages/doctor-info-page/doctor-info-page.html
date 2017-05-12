@@ -1,0 +1,31 @@
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>        
+    <ion-title>{{ doctor.first_name }} {{ doctor.last_name }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list *ngIf="user && doctor && doctor.schedule">
+    
+    <ion-list-header>
+      Изберете свободен час
+    </ion-list-header>
+
+    
+    <button ion-item *ngFor="let timeSlot of doctor.schedule.timeSlots" [disabled]="timeSlot.status_id == 2" (click)="confirmAppointment(timeSlot)">
+      {{ timeSlot.from | date : 'HH:mm' }}
+      
+      <span item-right *ngIf="timeSlot.status_id == 2 && timeSlot.user_id !== user.id">заето</span>
+      <span item-right *ngIf="timeSlot.status_id == 2 && timeSlot.user_id == user.id">{{ user.first_name }} {{ user.last_name }}</span>
+      
+    </button>
+  </ion-list>
+  
+</ion-content>
