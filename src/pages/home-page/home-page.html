@@ -12,5 +12,33 @@
 
 
 <ion-content padding>
-  <h1 *ngIf="user">{{user.first_name}} {{user.last_name}}</h1>
+  <ion-card *ngIf="user">
+    <ion-card-header>
+      {{user.first_name}} {{user.last_name}}
+    </ion-card-header>
+
+    <ion-card-content>
+
+    </ion-card-content>
+
+  </ion-card>
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <button ion-button block [navPush]="doctorsPage">Личен лекар</button>
+      </ion-col>
+
+      <ion-col>
+        <button ion-button block [navPush]="prescriptionsPage">Рецепти</button>
+      </ion-col>
+
+    </ion-row>
+
+  </ion-grid>
+
 </ion-content>
+
+
+

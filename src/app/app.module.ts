@@ -10,6 +10,8 @@ import { AuthService } from '../providers/auth-service';
 
 import {ForgotPage} from '../pages/forgot-page/forgot-page';
 import {RegisterPage} from '../pages/register-page/register-page';
+import {DoctorsPage} from '../pages/doctors-page/doctors-page';
+import {PrescriptionsPage} from '../pages/prescriptions-page/prescriptions-page';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -28,7 +30,9 @@ export function getAuthHttp(http) {
   declarations: [
     MyApp,
     ForgotPage,
-    RegisterPage
+    RegisterPage,
+    DoctorsPage,
+    PrescriptionsPage
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,9 @@ export function getAuthHttp(http) {
   entryComponents: [
     MyApp,
     ForgotPage,
-    RegisterPage
+    RegisterPage,
+    DoctorsPage,
+    PrescriptionsPage
   ],
   providers: [
     StatusBar,

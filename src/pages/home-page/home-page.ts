@@ -3,6 +3,9 @@ import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angul
 import {ProtectedPage} from '../protected-page/protected-page';
 import {Storage} from '@ionic/storage';
 
+import {DoctorsPage} from '../doctors-page/doctors-page';
+import {PrescriptionsPage} from '../prescriptions-page/prescriptions-page';
+
 import {UserModel} from '../../models/user.model';
 
 
@@ -20,6 +23,9 @@ import {UserModel} from '../../models/user.model';
 export class HomePage extends ProtectedPage {
 
   public user: UserModel;
+  
+  public doctorsPage: any;
+  public prescriptionsPage: any;
 
   constructor(
     public navCtrl: NavController,
@@ -30,6 +36,9 @@ export class HomePage extends ProtectedPage {
     super(navCtrl, navParams, storage);
     
     this.storage.get('user').then(user => this.user = user);
+    
+    this.doctorsPage = DoctorsPage;
+    this.prescriptionsPage = PrescriptionsPage;
   }
 
   ionViewDidLoad() {
