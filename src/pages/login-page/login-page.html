@@ -1,0 +1,36 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Вход</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-grid>
+    <ion-row justify-content-around>
+      <ion-col col-sm-6 col-md-6 col-lg-4 col-xl-3  align-self-center>
+        <form [formGroup]="loginData" (ngSubmit)="login()">
+          <ion-item>
+            <ion-label floating>ЕГН:</ion-label>
+            <ion-input type="number" formControlName="egn"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Парола:</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+
+          <button margin-top ion-button type="submit" [disabled]="!loginData.valid">Вход</button>
+
+          <p><a [navPush]="registerPage">Нова регистрация</a></p>
+          <p><a [navPush]="forgotPage">Забравена парола?</a></p>
+          
+        </form>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

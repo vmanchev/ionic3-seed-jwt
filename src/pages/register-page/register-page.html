@@ -1,0 +1,85 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>       
+    <ion-title>Нова регистрация</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-grid>
+    <ion-row justify-content-around>
+      <ion-col col-sm-6 col-md-6 col-lg-4 col-xl-3  align-self-center>
+        <form [formGroup]="regData" (ngSubmit)="register()">
+
+          <ion-item>
+            <ion-label floating>Име:</ion-label>
+            <ion-input type="text" formControlName="first_name"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Презиме</ion-label>
+            <ion-input type="text" formControlName="middle_name"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Фамилия:</ion-label>
+            <ion-input type="text" formControlName="last_name"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>ЕГН:</ion-label>
+            <ion-input type="number" formControlName="egn"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Дата на раждане:</ion-label>
+            <ion-input type="date" formControlName="dob" placeholder="" cancelText="Отказ" doneText="Избор"></ion-input>
+            <ion-datetime displayFormat="DD MMMM YYYY" formControlName="dob"></ion-datetime>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Пол:</ion-label>            
+            <ion-select formControlName="gender">
+              <ion-option value="F">Жена</ion-option>
+              <ion-option value="M">Мъж</ion-option>
+            </ion-select>            
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Ел. поща:</ion-label>
+            <ion-input type="email" formControlName="email"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Парола:</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Повторете паролата:</ion-label>
+            <ion-input type="password" formControlName="confirm_password"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Телефон</ion-label>
+            <ion-input type="phone" formControlName="phone"></ion-input>
+          </ion-item>
+
+          <button margin-top ion-button type="submit" [disabled]="!regData.valid">Регистрация</button>
+
+        </form>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  {{ regData.value.dob }}
+
+</ion-content>

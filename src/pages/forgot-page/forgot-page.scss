@@ -1,0 +1,23 @@
+page-forgot-page {
+
+  scroll-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  ion-item.item-md {
+    padding-left: 0;
+  }
+  
+  ion-grid {
+    padding: 0;
+    height: 100%;
+  }
+
+  ion-row {
+    flex: 1;
+  }
+
+
+
+}
