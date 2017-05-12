@@ -70,6 +70,31 @@
             <ion-label floating>Телефон</ion-label>
             <ion-input type="phone" formControlName="phone"></ion-input>
           </ion-item>
+          
+          <ion-item>
+            <ion-label>Регистрация като лекар?</ion-label>
+            <ion-toggle formControlName="as_doctor" [(ngModel)]="as_doctor" (ionChange)="disableGroup('as_pharmacist')"></ion-toggle>
+          </ion-item>     
+          
+          <ion-item *ngIf="as_doctor">
+            <ion-label floating>УИН:</ion-label>
+            <ion-input type="number" formControlName="doctor_id"></ion-input>
+          </ion-item>
+          
+          <ion-item>
+            <ion-label>Регистрация като фармацевт?</ion-label>
+            <ion-toggle formControlName="as_pharmacist" [(ngModel)]="as_pharmacist" (ionChange)="disableGroup('as_doctor')"></ion-toggle>
+          </ion-item>     
+          
+          <ion-item *ngIf="as_pharmacist">
+            <ion-label floating>Номер на фармацевт:</ion-label>
+            <ion-input type="number" formControlName="pharmacist_id"></ion-input>
+          </ion-item>
+          
+          <ion-item *ngIf="as_doctor || as_pharmacist">
+            <ion-label floating>Код за активация:</ion-label>
+            <ion-input type="number" formControlName="activation_code"></ion-input>
+          </ion-item>
 
           <button margin-top ion-button type="submit" [disabled]="!regData.valid">Регистрация</button>
 
@@ -80,6 +105,6 @@
   </ion-grid>
 
 
-  {{ regData.value.dob }}
+  
 
 </ion-content>

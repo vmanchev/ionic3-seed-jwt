@@ -33,6 +33,11 @@ export class RegisterPage {
       password: ['', Validators.required],
       confirm_password: ['', Validators.required],
       phone: ['', Validators.required],
+      as_doctor: [false],
+      as_pharmacist: [false],
+      doctor_id: [''],
+      pharmacist_id: [''],
+      activation_code: ['']
     });
 
   }
@@ -47,6 +52,10 @@ export class RegisterPage {
     this.authService.register(this.regData.value)
       .then(() => this.navCtrl.setRoot('HomePage'))
       .catch(e => console.log("reg error", e));
+  }
+
+  disableGroup(name) {
+    this.regData[name] = [false];
   }
 
 }
