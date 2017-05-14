@@ -13,4 +13,20 @@
 
 <ion-content padding>
 
+  <div *ngIf="appointments">
+
+    <ion-card  *ngFor="let appointment of appointments">
+
+      <ion-card-header>
+        {{ appointment.timeSlot.from | date : 'dd/mm/yyyy HH:mm' }}
+      </ion-card-header>
+
+      <ion-card-content>
+        Лекар: {{ appointment.doctor.first_name }} {{ appointment.doctor.last_name }}<br />
+        Адрес: {{ appointment.practice.address }}
+      </ion-card-content>
+    </ion-card>
+
+  </div>
+
 </ion-content>

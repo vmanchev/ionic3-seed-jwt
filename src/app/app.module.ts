@@ -11,7 +11,8 @@ import { AuthService } from '../providers/auth-service';
 import {ForgotPage} from '../pages/forgot-page/forgot-page';
 import {RegisterPage} from '../pages/register-page/register-page';
 import {DoctorInfoPage} from '../pages/doctor-info-page/doctor-info-page';
-import {PrescriptionsPage} from '../pages/prescriptions-page/prescriptions-page';
+//import {PrescriptionsPage} from '../pages/prescriptions-page/prescriptions-page';
+import {PrescriptionsPageModule} from '../pages/prescriptions-page/prescriptions-page.module';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -31,8 +32,7 @@ export function getAuthHttp(http) {
     MyApp,
     ForgotPage,
     RegisterPage,
-    DoctorInfoPage,
-    PrescriptionsPage
+    DoctorInfoPage
   ],
   imports: [
     BrowserModule,
@@ -40,15 +40,15 @@ export function getAuthHttp(http) {
       monthNames: ['Януари', 'Фавруари', 'Март', 'Април', 'Май', 'Юни', 'Юли', 'Август', 'Септември', 'Октомври', 'Ноември', 'Декември']
     }),
     IonicStorageModule.forRoot(),
-    HttpModule
+    HttpModule,
+    PrescriptionsPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     ForgotPage,
     RegisterPage,
-    DoctorInfoPage,
-    PrescriptionsPage
+    DoctorInfoPage
   ],
   providers: [
     StatusBar,

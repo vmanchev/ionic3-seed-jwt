@@ -12,7 +12,7 @@
   <ion-grid>
     <ion-row justify-content-around>
       <ion-col col-sm-6 col-md-6 col-lg-4 col-xl-3  align-self-center>
-        <form [formGroup]="loginData" (ngSubmit)="login()">
+        <form [formGroup]="loginData" (ngSubmit)="login()"  *ngIf="!showRoleSelection">
           <ion-item>
             <ion-label floating>ЕГН:</ion-label>
             <ion-input type="number" formControlName="egn"></ion-input>
@@ -24,12 +24,41 @@
 
           <button margin-top ion-button type="submit" [disabled]="!loginData.valid">Вход</button>
 
-          <p><a [navPush]="doctorInfoPage">Нова регистрация</a></p>
+          <p><a [navPush]="registerPage">Нова регистрация</a></p>
           <p><a [navPush]="forgotPage">Забравена парола?</a></p>
-          
+
         </form>
+        
+        <ion-grid  *ngIf="showRoleSelection">
+          <ion-row>
+            <ion-col>
+              Изберте роля, с която искате да продължите
+            </ion-col>
+          </ion-row>
+          
+          <ion-row>
+            <ion-col>
+              <button ion-button (click)="setRole('ROLE_PATIENT')">Пациент</button>
+            </ion-col>
+            
+            
+            <ion-col *ngIf="user.role == 'ROLE_DOCTOR' ">
+              <button ion-button (click)="setRole()">Лекар</button>
+            </ion-col>
+            
+            <ion-col *ngIf="user.role == 'ROLE_PHARMACIST' ">
+              <button ion-button (click)="setRole()">Фармацевт</button>
+            </ion-col>
+            
+          </ion-row>
+          
+        </ion-grid>
+        
 
       </ion-col>
+
+
+
     </ion-row>
   </ion-grid>
 

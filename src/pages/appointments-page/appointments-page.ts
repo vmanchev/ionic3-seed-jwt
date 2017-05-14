@@ -10,12 +10,38 @@ import {Storage} from '@ionic/storage';
 })
 export class AppointmentsPage extends ProtectedPage {
 
+  public appointments = [{
+    doctor: {
+      first_name: 'Дора',
+      last_name: 'Кулова'
+    },
+    practice: {
+      address: 'ДКЦ 15, ул. Никола Габровски 15'
+    },
+    timeSlot: {
+      "from": "2017-06-18 08:20:00"
+    }
+  }, {
+    doctor: {
+      first_name: 'Гергана',
+      last_name: 'Гоцева'
+    },
+    practice: {
+      address: 'Софиямед'
+    },
+    timeSlot: {
+      "from": "2017-06-22 14:30:00"
+    }
+  }];
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public storage: Storage) {
     
     super(navCtrl, navParams, storage);
+    
+    
     
   }
 

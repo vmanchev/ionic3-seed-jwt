@@ -10,5 +10,6 @@ export class UserModel {
   public password: string;
   public confirm_password?: string;
   public phone: string;
+  public role: string;
    
 }

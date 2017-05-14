@@ -35,7 +35,9 @@ export class HomePage extends ProtectedPage {
     
     super(navCtrl, navParams, storage);
     
-    this.storage.get('user').then(user => this.user = user);
+    this.storage.get('user').then(user => {
+      this.user = user;
+    });
     
     this.doctorInfoPage = DoctorInfoPage;
     this.prescriptionsPage = PrescriptionsPage;
