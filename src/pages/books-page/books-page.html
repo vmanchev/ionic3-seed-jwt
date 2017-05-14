@@ -1,0 +1,22 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>    
+    <ion-title>{{ 'page.books.list' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <button ion-button block (click)="openPage('BookAddPage')">{{ 'button.add_book' | translate }}</button>
+  
+  <ion-list *ngIf="books">
+    <button ion-item  *ngFor="let book of books" (click)="bookInfo(book)">{{ book.title }}</button>
+  </ion-list>
+  
+</ion-content>

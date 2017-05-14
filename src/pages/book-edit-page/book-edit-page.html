@@ -1,0 +1,47 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>    
+    <ion-title>{{ 'page.books.edit' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-grid>
+    <ion-row justify-content-around>
+      <ion-col col-sm-6 col-md-6 col-lg-4 col-xl-3  align-self-center>
+        <form [formGroup]="bookData" (ngSubmit)="process()">
+          <ion-item>
+            <ion-label floating>{{ 'label.title' | translate }}:</ion-label>
+            <ion-input type="text" formControlName="title"></ion-input>
+          </ion-item>
+          
+          <ion-item>
+            <ion-label floating>{{ 'label.author_name' | translate }}:</ion-label>
+            <ion-input type="text" formControlName="author_name"></ion-input>
+          </ion-item>
+          
+          <ion-item>
+            <ion-label floating>{{ 'label.pages' | translate }}:</ion-label>
+            <ion-input type="number" formControlName="pages_count"></ion-input>
+          </ion-item>
+          
+
+          <button margin-top ion-button type="submit" [disabled]="!bookData.valid">{{ 'button.submit' | translate }}</button>
+
+        </form>
+        
+      </ion-col>
+
+    </ion-row>
+    
+    
+    
+  </ion-grid>  
+  
+</ion-content>

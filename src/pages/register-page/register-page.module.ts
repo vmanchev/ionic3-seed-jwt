@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { IonicPageModule } from 'ionic-angular';
-import { RegisterPage } from './register-page';
+import {NgModule} from '@angular/core';
+import {IonicPageModule} from 'ionic-angular';
+import {RegisterPage} from './register-page';
 import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({

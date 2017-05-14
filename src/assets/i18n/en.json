@@ -4,14 +4,20 @@
     "password": "Password",
     "name": "Name",
     "password": "Password",
-    "confirm_password" : "Confirm password"
+    "confirm_password" : "Confirm password",
+    "title" : "Title",
+    "author_name": "Author",
+    "pages": "Pages"
   },
   "button" : {
     "login" : "Login",
     "register" : "Register",
     "new_registration" : "New registration",
     "forgotten_password" : "Forgotten password?",
-    "submit" : "Submit"
+    "submit" : "Submit",
+    "add_book": "Add new book",
+    "edit": "Edit",
+    "delete": "Delete"
   },
   "page" : {
     "login" : "Login",
@@ -19,6 +25,11 @@
     "register" : "New registration",
     "forgotten_password" : "Password recovery",
     "profile" : "Profile",
-    "books" : "Books"
+    "books" : {
+      "list" : "My books",
+      "add": "Add book",
+      "edit" : "Edit book",
+      "preview": "Preview"
+    }
   }
 }

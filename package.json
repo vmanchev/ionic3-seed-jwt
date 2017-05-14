@@ -1,8 +1,8 @@
 {
-  "name": "ionic-hello-world",
-  "version": "0.0.0",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "name": "ionic3-seed-jwt",
+  "version": "0.0.1",
+  "author": "Venelin Manchev",
+  "homepage": "http://toxic.digital",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
@@ -53,5 +53,5 @@
       "locator": "ios"
     }
   ],
-  "description": "medica: An Ionic project"
+  "description": "Ionic 3 seed project with JWT support"
 }

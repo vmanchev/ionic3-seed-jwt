@@ -7,6 +7,7 @@ import {HttpModule, Http} from '@angular/http';
 import {AuthHttp, AuthConfig} from 'angular2-jwt';
 import {Storage} from '@ionic/storage';
 import {AuthService} from '../providers/auth-service';
+import {BooksService} from '../providers/books-service';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
@@ -57,7 +58,8 @@ export function createTranslateLoader(http: Http) {
       useFactory: getAuthHttp,
       deps: [Http]
     },
-    AuthService
+    AuthService,
+    BooksService
   ]
 })
 export class AppModule {}

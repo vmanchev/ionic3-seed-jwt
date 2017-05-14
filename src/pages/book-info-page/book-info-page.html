@@ -1,0 +1,42 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>    
+    <ion-title>{{ 'page.books.preview' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-card *ngIf="book">
+    <ion-card-content>
+      <h1>{{ book.title }}</h1>
+      by {{ book.author_name }}, p. {{ book.pages_count }}
+    </ion-card-content>
+
+
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-left clear small color="secondary" (click)="editBook(book)">
+          <ion-icon name="construct"></ion-icon>
+          <div>{{ 'button.edit' | translate }}</div>
+        </button>          
+      </ion-col>
+      
+      <ion-col text-right>
+        <button ion-button icon-left clear small color="danger" (click)="deleteBook(book)">
+          <ion-icon name="trash"></ion-icon>
+          <div>{{ 'button.delete' | translate }}</div>
+        </button>          
+      </ion-col>
+
+    </ion-row>
+
+
+  </ion-card>
+
+</ion-content>
