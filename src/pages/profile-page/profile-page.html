@@ -1,0 +1,33 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>    
+    <ion-title>{{ 'page.profile' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-card *ngIf="user">
+    
+    <ion-row>
+      <ion-col col-25>{{ 'label.name' | translate }}:</ion-col>
+      <ion-col col-75>{{ user.name }}</ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col col-25>{{ 'label.email' | translate }}:</ion-col>
+      <ion-col col-75>{{ user.email }}</ion-col>
+    </ion-row>
+       
+  </ion-card>
+
+
+</ion-content>
+
+
+

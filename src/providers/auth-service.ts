@@ -1,64 +1,55 @@
 import {Injectable} from '@angular/core';
-import {Http, RequestOptions, Headers} from '@angular/http';
+import {Http} from '@angular/http';
 import {AuthHttp, tokenNotExpired} from 'angular2-jwt';
 import {Storage} from '@ionic/storage';
 import 'rxjs/add/operator/toPromise';
-
 import {UserModel} from '../models/user.model';
+import {CredentialsModel} from '../models/credentials.model';
+
+import *  as AppConfig from '../app/config';
 
 @Injectable()
 export class AuthService {
+
+  private cfg: any;
 
   constructor(
     private storage: Storage,
     private http: Http,
     private authHttp: AuthHttp) {
 
+    this.cfg = AppConfig.cfg;
   }
 
   register(userData: UserModel) {
 
-    let h = new Headers();
-    h.append('Access-Control-Expose-Headers', 'Authorization');
-    
-    let rqo = new RequestOptions();
-    rqo.headers = h;
-
-    return this.http.post('http://localhost:3000/users', userData, rqo)
+    return this.http.post(this.cfg.apiUrl + this.cfg.user.register, userData)
       .toPromise()
-      .then(data => {
-        console.log(data)
-        this.storage.set("user", data.json());
-        this.storage.set("id_token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ");
-        return true;
-      })
-      .catch(e => console.log("regError", e));
+      .then(data => this.saveData(data))
+      .catch(e => console.log("reg error", e));
 
   }
 
-  login() {
+  login(credentials: CredentialsModel) {
 
-    return this.http.get('http://localhost:3000/users/1')
+    return this.http.post(this.cfg.apiUrl + this.cfg.user.login, credentials)
       .toPromise()
-      .then(data => {
-        
-        let u = data.json();
-        u.role = 'ROLE_DOCTOR';
+      .then(data => this.saveData(data))
+      .catch(e => console.log('login error', e));
 
-        this.storage.set("user", u);
-        this.storage.set("id_token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ");
-        return true;
-      });
+  }
 
+  saveData(data: any) {
+
+    let rs = data.json();
+
+    this.storage.set("user", rs.user);
+    this.storage.set("id_token", rs.token);
   }
 
   logout() {
-    this.authHttp
-      .delete('https://jsonplaceholder.typicode.com/users/1')
-      .subscribe(() => {
-        this.storage.remove('user');
-        this.storage.remove('id_token');
-      });
+    this.storage.remove('user');
+    this.storage.remove('id_token');
   }
 
   isValid() {

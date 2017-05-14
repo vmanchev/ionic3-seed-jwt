@@ -4,7 +4,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>       
-    <ion-title>Нова регистрация</ion-title>
+    <ion-title>{{ 'page.register' | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -18,85 +18,26 @@
         <form [formGroup]="regData" (ngSubmit)="register()">
 
           <ion-item>
-            <ion-label floating>Име:</ion-label>
-            <ion-input type="text" formControlName="first_name"></ion-input>
+            <ion-label floating>{{ 'label.name' | translate }}:</ion-label>
+            <ion-input type="text" formControlName="name"></ion-input>
           </ion-item>
 
           <ion-item>
-            <ion-label floating>Презиме</ion-label>
-            <ion-input type="text" formControlName="middle_name"></ion-input>
-          </ion-item>
-
-          <ion-item>
-            <ion-label floating>Фамилия:</ion-label>
-            <ion-input type="text" formControlName="last_name"></ion-input>
-          </ion-item>
-
-          <ion-item>
-            <ion-label floating>ЕГН:</ion-label>
-            <ion-input type="number" formControlName="egn"></ion-input>
-          </ion-item>
-
-          <ion-item>
-            <ion-label floating>Дата на раждане:</ion-label>
-            <ion-input type="date" formControlName="dob" placeholder="" cancelText="Отказ" doneText="Избор"></ion-input>
-            <ion-datetime displayFormat="DD MMMM YYYY" formControlName="dob"></ion-datetime>
-          </ion-item>
-
-          <ion-item>
-            <ion-label floating>Пол:</ion-label>            
-            <ion-select formControlName="gender">
-              <ion-option value="F">Жена</ion-option>
-              <ion-option value="M">Мъж</ion-option>
-            </ion-select>            
-          </ion-item>
-
-          <ion-item>
-            <ion-label floating>Ел. поща:</ion-label>
+            <ion-label floating>{{ 'label.email' | translate }}:</ion-label>
             <ion-input type="email" formControlName="email"></ion-input>
           </ion-item>
 
           <ion-item>
-            <ion-label floating>Парола:</ion-label>
+            <ion-label floating>{{ 'label.password' | translate }}:</ion-label>
             <ion-input type="password" formControlName="password"></ion-input>
           </ion-item>
 
           <ion-item>
-            <ion-label floating>Повторете паролата:</ion-label>
+            <ion-label floating>{{ 'label.confirm_password' | translate }}:</ion-label>
             <ion-input type="password" formControlName="confirm_password"></ion-input>
           </ion-item>
 
-          <ion-item>
-            <ion-label floating>Телефон</ion-label>
-            <ion-input type="phone" formControlName="phone"></ion-input>
-          </ion-item>
-          
-          <ion-item>
-            <ion-label>Регистрация като лекар?</ion-label>
-            <ion-toggle formControlName="as_doctor" [(ngModel)]="as_doctor" (ionChange)="disableGroup('as_pharmacist')"></ion-toggle>
-          </ion-item>     
-          
-          <ion-item *ngIf="as_doctor">
-            <ion-label floating>УИН:</ion-label>
-            <ion-input type="number" formControlName="doctor_id"></ion-input>
-          </ion-item>
-          
-          <ion-item>
-            <ion-label>Регистрация като фармацевт?</ion-label>
-            <ion-toggle formControlName="as_pharmacist" [(ngModel)]="as_pharmacist" (ionChange)="disableGroup('as_doctor')"></ion-toggle>
-          </ion-item>     
-          
-          <ion-item *ngIf="as_pharmacist">
-            <ion-label floating>Номер на фармацевт:</ion-label>
-            <ion-input type="number" formControlName="pharmacist_id"></ion-input>
-          </ion-item>
-          
-          <ion-item *ngIf="as_doctor || as_pharmacist">
-            <ion-label floating>Код за активация:</ion-label>
-            <ion-input type="number" formControlName="activation_code"></ion-input>
-          </ion-item>
-
-          <button margin-top ion-button type="submit" [disabled]="!regData.valid">Регистрация</button>
+          <button margin-top ion-button type="submit" [disabled]="!regData.valid">{{ 'button.register' | translate  }}</button>
 
         </form>
 

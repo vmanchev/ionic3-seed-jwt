@@ -34,16 +34,4 @@ export class ForgotPage {
     this.menuCtrl.enable(false);
   }
 
-  login() {
-
-    //use this.loginData.value to authenticate the user
-
-
-    this.authService.login()
-      .then(() => {
-        this.navCtrl.setRoot('HomePage');
-        this.menuCtrl.enable(true);
-      })
-      .catch(e => console.log("login error", e));
-  }
 }

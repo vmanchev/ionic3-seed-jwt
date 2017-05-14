@@ -2,31 +2,17 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 import {ProtectedPage} from '../protected-page/protected-page';
 import {Storage} from '@ionic/storage';
-
-import {DoctorInfoPage} from '../doctor-info-page/doctor-info-page';
-import {PrescriptionsPage} from '../prescriptions-page/prescriptions-page';
-
 import {UserModel} from '../../models/user.model';
 
-
-/**
- * Generated class for the HomePage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage()
 @Component({
-  selector: 'page-home-page',
-  templateUrl: 'home-page.html',
+  selector: 'page-profile-page',
+  templateUrl: 'profile-page.html',
 })
-export class HomePage extends ProtectedPage {
+export class ProfilePage extends ProtectedPage {
 
   public user: UserModel;
   
-  public doctorInfoPage: any;
-  public prescriptionsPage: any;
-
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -39,13 +25,10 @@ export class HomePage extends ProtectedPage {
       this.user = user;
     });
     
-    this.doctorInfoPage = DoctorInfoPage;
-    this.prescriptionsPage = PrescriptionsPage;
   }
 
   ionViewDidLoad() {
     this.menuCtrl.enable(true);
-    console.log('ionViewDidLoad HomePage');
   }
 
 }

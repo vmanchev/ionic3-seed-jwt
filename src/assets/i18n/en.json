@@ -1,0 +1,24 @@
+{
+  "label": {
+    "email": "Email address",
+    "password": "Password",
+    "name": "Name",
+    "password": "Password",
+    "confirm_password" : "Confirm password"
+  },
+  "button" : {
+    "login" : "Login",
+    "register" : "Register",
+    "new_registration" : "New registration",
+    "forgotten_password" : "Forgotten password?",
+    "submit" : "Submit"
+  },
+  "page" : {
+    "login" : "Login",
+    "logout" : "Logout",
+    "register" : "New registration",
+    "forgotten_password" : "Password recovery",
+    "profile" : "Profile",
+    "books" : "Books"
+  }
+}

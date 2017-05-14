@@ -4,7 +4,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>       
-    <ion-title>Забравена парола</ion-title>
+    <ion-title>{{ 'page.forgotten_password' | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -17,15 +17,11 @@
       <ion-col col-sm-6 col-md-6 col-lg-4 col-xl-3  align-self-center>
         <form [formGroup]="forgotData" (ngSubmit)="login()">
           <ion-item>
-            <ion-label floating>ЕГН:</ion-label>
-            <ion-input type="number" formControlName="egn"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label floating>Ел. поща:</ion-label>
+            <ion-label floating>{{ 'label.email' | translate }}:</ion-label>
             <ion-input type="email" formControlName="email"></ion-input>
           </ion-item>
 
-          <button margin-top ion-button type="submit" [disabled]="!forgotData.valid">Помощ</button>
+          <button margin-top ion-button type="submit" [disabled]="!forgotData.valid">{{ 'button.submit' | translate }}</button>
 
         </form>
 

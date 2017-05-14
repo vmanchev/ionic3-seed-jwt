@@ -23,21 +23,10 @@ export class RegisterPage {
     public authService: AuthService) {
 
     this.regData = this.formBuilder.group({
-      first_name: ['', Validators.required],
-      middle_name: ['', Validators.required],
-      last_name: ['', Validators.required],
-      egn: ['', Validators.compose([Validators.required, Validators.minLength(10), , Validators.maxLength(10)])],
-      dob: ['', Validators.required],
-      gender: ['', Validators.required],
+      name: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required],
-      confirm_password: ['', Validators.required],
-      phone: ['', Validators.required],
-      as_doctor: [false],
-      as_pharmacist: [false],
-      doctor_id: [''],
-      pharmacist_id: [''],
-      activation_code: ['']
+      confirm_password: ['', Validators.required]
     });
 
   }
@@ -50,12 +39,8 @@ export class RegisterPage {
   register() {
     
     this.authService.register(this.regData.value)
-      .then(() => this.navCtrl.setRoot('HomePage'))
+      .then(() => this.navCtrl.setRoot('ProfilePage'))
       .catch(e => console.log("reg error", e));
-  }
-
-  disableGroup(name) {
-    this.regData[name] = [false];
   }
 
 }

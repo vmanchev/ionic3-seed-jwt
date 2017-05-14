@@ -1,21 +1,17 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import {BrowserModule} from '@angular/platform-browser';
+import {ErrorHandler, NgModule} from '@angular/core';
+import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
 import {IonicStorageModule} from '@ionic/storage';
-import { MyApp } from './app.component';
+import {MyApp} from './app.component';
 import {HttpModule, Http} from '@angular/http';
-import { AuthHttp, AuthConfig } from 'angular2-jwt';
-import { Storage } from '@ionic/storage';
-import { AuthService } from '../providers/auth-service';
+import {AuthHttp, AuthConfig} from 'angular2-jwt';
+import {Storage} from '@ionic/storage';
+import {AuthService} from '../providers/auth-service';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
-import {ForgotPage} from '../pages/forgot-page/forgot-page';
-import {RegisterPage} from '../pages/register-page/register-page';
-import {DoctorInfoPage} from '../pages/doctor-info-page/doctor-info-page';
-//import {PrescriptionsPage} from '../pages/prescriptions-page/prescriptions-page';
-import {PrescriptionsPageModule} from '../pages/prescriptions-page/prescriptions-page.module';
-
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import {StatusBar} from '@ionic-native/status-bar';
+import {SplashScreen} from '@ionic-native/splash-screen';
 
 let storage = new Storage({});
 
@@ -27,28 +23,30 @@ export function getAuthHttp(http) {
   }), http);
 }
 
+export function createTranslateLoader(http: Http) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
 @NgModule({
   declarations: [
-    MyApp,
-    ForgotPage,
-    RegisterPage,
-    DoctorInfoPage
+    MyApp
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp, {
-      monthNames: ['Януари', 'Фавруари', 'Март', 'Април', 'Май', 'Юни', 'Юли', 'Август', 'Септември', 'Октомври', 'Ноември', 'Декември']
-    }),
+    IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
     HttpModule,
-    PrescriptionsPageModule
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [Http]
+      }
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    ForgotPage,
-    RegisterPage,
-    DoctorInfoPage
+    MyApp
   ],
   providers: [
     StatusBar,
