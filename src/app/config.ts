@@ -3,7 +3,8 @@ export let cfg = {
   tokenName: 'token',
   user: {
     register: '/auth/signup',
-    login: '/auth/login'
+    login: '/auth/login',
+    refresh:'/refresh',
   },
   books: '/books'
 };
