@@ -4,7 +4,7 @@ import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
 import {IonicStorageModule} from '@ionic/storage';
 import {MyApp} from './app.component';
 import {HttpModule, Http} from '@angular/http';
-import {AuthHttp, AuthConfig} from 'angular2-jwt';
+import {AuthHttp, AuthConfig,JwtHelper} from 'angular2-jwt';
 import {Storage} from '@ionic/storage';
 import {AuthService} from '../providers/auth-service';
 import {BooksService} from '../providers/books-service';
@@ -51,6 +51,7 @@ export function createTranslateLoader(http: Http) {
   ],
   providers: [
     StatusBar,
+    JwtHelper,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     {
