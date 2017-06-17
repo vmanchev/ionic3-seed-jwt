@@ -83,24 +83,32 @@ export class AuthService {
   public getNewJwt() {
      // Get a new JWT from Auth0 using the refresh token saved
      // in local storage
+    this.storage.get("id_token").then((thetoken)=>{
 
-       let seq = this.authHttp.post(this.cfg.apiUrl + this.cfg.user.refresh, '').share();
-        seq
+      let  senddata: { Token:string} = {
+           Token : thetoken
+        };
+
+        this.http.get(this.cfg.apiUrl + this.cfg.user.refresh+"?Token="+thetoken)
          .map(res => res.json())
          .subscribe(res => {
            console.log(JSON.stringify(res));
+           console.log(res.status);
            // If the API returned a successful response, mark the user as logged in
            // this need to be fixed on Laravel project to retun the New Token ;
-            if(res.message == 'success') {
+            if(res.status == 'success') {
                    this.storage.set("id_token", res.token);
 
              } else {
-               console.log("erorr");
+               console.log("The Token Black Listed");
+               this.logout();
+
             }
          }, err => {
            console.error('ERROR', err);
+          });
 
-         });
+       });
 
    }
 
